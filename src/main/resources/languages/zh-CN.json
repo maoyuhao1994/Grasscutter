@@ -268,6 +268,13 @@
     "setStats": {
       "description": "设置当前角色的属性\n\t可更改的属性列表：hp(生命值)|maxhp(最大生命值)|def(防御力)|atk(攻击力)|em(元素精通)|er(元素充能效率)|crate(暴击率)|cdmg(暴击伤害)|cdr(冷却缩减)|heal(治疗加成)|heali(受治疗加成)|shield(护盾强效)|defi(无视防御)\n元素增伤：epyro(火)|ecryo(冰)|ehydro(水)|egeo(岩)|edendro(草)|eelectro(雷)|ephys(物理)\n元素抗性：respyro(火)|rescryo(冰)|reshydro(水)|resgeo(岩)|resdendro(草)|reselectro(雷)|resphys(物理)"
     },
+    "setWorldLevel": {
+      "usage": "用法：setworldlevel <等级>",
+      "value_error": "世界等级必须在 0-8 之间。",
+      "success": "世界等级已设为 %s。",
+      "invalid_world_level": "无效的世界等级。",
+      "description": "设置世界等级，执行命令后需重新登录以生效"
+    },
     "spawn": {
       "success": "已生成 %s 个 %s。",
       "limit_reached": "场景中的生成数量已达上限。已替代为生成 %s 个实体。",
