@@ -1,5 +1,6 @@
 package emu.grasscutter.game.drop;
 
+import emu.grasscutter.game.world.World;
 import com.google.gson.reflect.TypeToken;
 import emu.grasscutter.Grasscutter;
 import emu.grasscutter.data.DataLoader;
@@ -71,11 +72,13 @@ public class DropSystem extends BaseGameSystem {
         }
     }
 
-    private void processDrop(DropData dd, EntityMonster em, Player gp) {
+    private void processDrop(DropData dd, EntityMonster em, Player gp, int world) {
         int target = Utils.randomRange(1, 10000);
         if (target >= dd.getMinWeight() && target < dd.getMaxWeight()) {
             ItemData itemData = GameData.getItemDataMap().get(dd.getItemId());
-            int num = Utils.randomRange(dd.getMinCount(), dd.getMaxCount());
+            int mincount = dd.getMinCount()*world;
+            int maxcount = dd.getMaxCount()*world + 50;
+            int num = Utils.randomRange(mincount, maxcount);
 
             if (itemData == null) {
                 return;
@@ -95,13 +98,14 @@ public class DropSystem extends BaseGameSystem {
 
     public void callDrop(EntityMonster em) {
         int id = em.getMonsterData().getId();
+        int world = em.getWorld().getHost().getWorldLevel();
         if (getDropData().containsKey(id)) {
             for (DropData dd : getDropData().get(id)) {
                 if (dd.isShare())
-                    processDrop(dd, em, null);
+                    processDrop(dd, em, null,world);
                 else {
                     for (Player gp : em.getScene().getPlayers()) {
-                        processDrop(dd, em, gp);
+                        processDrop(dd, em, gp,world);
                     }
                 }
             }
