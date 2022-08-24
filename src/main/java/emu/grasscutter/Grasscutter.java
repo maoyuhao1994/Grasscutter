@@ -102,7 +102,7 @@ public final class Grasscutter {
         // Create command map.
         commandMap = new CommandMap(true);
         // Generate handbooks.
-        Tools.createGmHandbooks();
+        //Tools.createGmHandbooks();
 
         // Initialize server.
         Grasscutter.getLogger().info(translate("messages.status.starting"));
