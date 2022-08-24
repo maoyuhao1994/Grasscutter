@@ -49,11 +49,7 @@ public final class DatabaseManager {
     // Yes. I very dislike this method. However, this will be good for now.
     // TODO: Add dispatch routes for player account management
     public static Datastore getAccountDatastore() {
-        if (SERVER.runMode == ServerRunMode.GAME_ONLY) {
-            return dispatchDatastore;
-        } else {
-            return gameDatastore;
-        }
+        return dispatchDatastore;
     }
 
     public static void initialize() {
@@ -84,26 +80,23 @@ public final class DatabaseManager {
                 gameDatastore.ensureIndexes();
             }
         }
+        MongoClient dispatchMongoClient = MongoClients.create(DATABASE.server.connectionUri);
+        dispatchDatastore = Morphia.createDatastore(dispatchMongoClient, DATABASE.server.collection);
 
-        if (SERVER.runMode == ServerRunMode.GAME_ONLY) {
-            MongoClient dispatchMongoClient = MongoClients.create(DATABASE.server.connectionUri);
-            dispatchDatastore = Morphia.createDatastore(dispatchMongoClient, DATABASE.server.collection);
-
-            // Ensure indexes for dispatch server
-            try {
-                dispatchDatastore.ensureIndexes();
-            } catch (MongoCommandException e) {
-                Grasscutter.getLogger().info("Mongo index error: ", e);
-                // Duplicate index error
-                if (e.getCode() == 85) {
-                    // Drop all indexes and re add them
-                    MongoIterable<String> collections = dispatchDatastore.getDatabase().listCollectionNames();
-                    for (String name : collections) {
-                        dispatchDatastore.getDatabase().getCollection(name).dropIndexes();
-                    }
-                    // Add back indexes
-                    dispatchDatastore.ensureIndexes();
+        // Ensure indexes for dispatch server
+        try {
+            dispatchDatastore.ensureIndexes();
+        } catch (MongoCommandException e) {
+            Grasscutter.getLogger().info("Mongo index error: ", e);
+            // Duplicate index error
+            if (e.getCode() == 85) {
+                // Drop all indexes and re add them
+                MongoIterable<String> collections = dispatchDatastore.getDatabase().listCollectionNames();
+                for (String name : collections) {
+                    dispatchDatastore.getDatabase().getCollection(name).dropIndexes();
                 }
+                // Add back indexes
+                dispatchDatastore.ensureIndexes();
             }
         }
     }
