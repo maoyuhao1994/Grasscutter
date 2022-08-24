@@ -21,7 +21,7 @@ public @interface Command {
         PLAYER,     // targetPlayer can be online or offline
         ONLINE      // targetPlayer must be online
     }
-    TargetRequirement targetRequirement() default TargetRequirement.ONLINE;
+    TargetRequirement targetRequirement() default TargetRequirement.NONE;
 
     boolean threading() default false;
 }
