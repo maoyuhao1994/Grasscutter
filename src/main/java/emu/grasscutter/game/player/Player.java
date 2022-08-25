@@ -1189,8 +1189,8 @@ public class Player {
 
         this.furnitureManager.onLogin();
         // Home
-        home = GameHome.getByUid(getUid());
-        home.onOwnerLogin(this);
+        //home = GameHome.getByUid(getUid());
+        //home.onOwnerLogin(this);
         // Activity
         activityManager = new ActivityManager(this);
 
