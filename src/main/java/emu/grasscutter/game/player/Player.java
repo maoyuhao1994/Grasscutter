@@ -1168,7 +1168,7 @@ public class Player {
         session.send(new PacketPlayerStoreNotify(this));
         session.send(new PacketAvatarDataNotify(this));
 
-        this.getProgressManager().onPlayerLogin();
+        //this.getProgressManager().onPlayerLogin();
 
         session.send(new PacketFinishedParentQuestNotify(this));
         session.send(new PacketBattlePassAllDataNotify(this));
