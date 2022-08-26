@@ -15,8 +15,8 @@ import java.util.HashSet;
 @Command(
     label = "team",
     usage = {"add <avatarId,...>", "(remove|set) [index|first|last|index-index,...]"},
-    permission = "player.team",
-    permissionTargeted = "player.team.others")
+    permission = "server.team",
+    permissionTargeted = "server.team.others")
 public final class TeamCommand implements CommandHandler {
     private static final int BASE_AVATARID = 10000000;
 
