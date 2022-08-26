@@ -76,8 +76,8 @@ public class DropSystem extends BaseGameSystem {
                 int mincount = dd.getMinCount()*world/2;
                 int maxcount = dd.getMaxCount()*world/2 + 50;
             } else {
-                int mincount = dd.getMinCount();
-                int maxcount = dd.getMaxCount();
+                int mincount = dd.getMinCount()+world*2;
+                int maxcount = dd.getMaxCount()+world*2;
             }
             int num = Utils.randomRange(mincount, maxcount);
             
