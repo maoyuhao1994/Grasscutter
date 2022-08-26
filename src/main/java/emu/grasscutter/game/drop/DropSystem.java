@@ -73,8 +73,8 @@ public class DropSystem extends BaseGameSystem {
         if (target >= dd.getMinWeight() && target < dd.getMaxWeight()) {
             ItemData itemData = GameData.getItemDataMap().get(dd.getItemId());
             if (dd.getItemId() == 201 || dd.getItemId() == 202 || dd.getItemId() == 101 || dd.getItemId() == 102){
-                int mincount = (int)dd.getMinCount()*(1+world*0.5);
-                int maxcount = (int)dd.getMaxCount()*(1+world*0.5);
+                int mincount = (int)(dd.getMinCount()*(1+world*0.5));
+                int maxcount = (int)(dd.getMaxCount()*(1+world*0.5));
             } else {
                 int mincount = dd.getMinCount()+world*2;
                 int maxcount = dd.getMaxCount()+world*2;
