@@ -1160,7 +1160,7 @@ public class Player {
         this.doDailyReset();
 
         // Rewind active quests, and put the player to a rewind position it finds (if any) of an active quest
-        getQuestManager().onLogin();
+        //getQuestManager().onLogin();
 
         // Packets
         session.send(new PacketPlayerDataNotify(this)); // Player data
@@ -1168,7 +1168,7 @@ public class Player {
         session.send(new PacketPlayerStoreNotify(this));
         session.send(new PacketAvatarDataNotify(this));
 
-        //this.getProgressManager().onPlayerLogin();
+        this.getProgressManager().onPlayerLogin();
 
         session.send(new PacketFinishedParentQuestNotify(this));
         session.send(new PacketBattlePassAllDataNotify(this));
