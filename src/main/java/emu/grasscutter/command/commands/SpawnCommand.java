@@ -21,8 +21,8 @@ import static emu.grasscutter.utils.Language.translate;
     label = "spawn",
     usage = {"spawn <entityId> [amount] [level(monster only)] [<x> <y> <z>(monster only)]"},
     aliases = {"drop"},
-    permission = "server.spawn",
-    permissionTargeted = "server.spawn.others")
+    permission = "server.spawn1",
+    permissionTargeted = "server.spawn1.others")
 public final class SpawnCommand implements CommandHandler {
 
     @Override
