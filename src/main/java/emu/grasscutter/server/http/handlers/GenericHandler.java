@@ -59,7 +59,7 @@ public final class GenericHandler implements Router {
         String version = GameConstants.VERSION;
         long memoryUsage = memoryUsage();
 
-        response.send("{\"retcode\":0,\"status\":{\"playerCount\":" + playerCount + ",\"maxPlayer\":" + maxPlayer + ",\"version\":\"" + version + "\" +\"memoryUsage\":\"" +memoryUsage+ "\"}}");
+        response.send("{\"retcode\":0,\"status\":{\"playerCount\":" + playerCount + ",\"maxPlayer\":" + maxPlayer + ",\"version\":\"" + version + "\" +\"memoryUsage\":\"" +memoryUsage+ "%\"}}");
     }
     public static long memoryUsage() {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -97,7 +97,7 @@ public final class GenericHandler implements Router {
             double usage = (double) (memused - buffers - cached) / memTotal * 100;
             System.out.println("内存使用率" + usage + "%");
 
-            return memFree;
+            return usage;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
