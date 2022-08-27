@@ -53,7 +53,57 @@ public final class GenericHandler implements Router {
         int playerCount = Grasscutter.getGameServer().getPlayers().size();
         int maxPlayer = ACCOUNT.maxPlayer;
         String version = GameConstants.VERSION;
+        long memoryUsage = memoryUsage();
 
-        response.send("{\"retcode\":0,\"status\":{\"playerCount\":" + playerCount + ",\"maxPlayer\":" + maxPlayer + ",\"version\":\"" + version + "\"}}");
+        response.send("{\"retcode\":0,\"status\":{\"playerCount\":" + playerCount + ",\"maxPlayer\":" + maxPlayer + ",\"version\":\"" + version + "\" +\"memoryUsage\":" +memoryUsage}}");
+    }
+    public static long memoryUsage() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        InputStreamReader inputs = null;
+        BufferedReader buffer = null;
+        try {
+            inputs = new InputStreamReader(new FileInputStream("/proc/meminfo"));
+            buffer = new BufferedReader(inputs);
+            String line = "";
+            while (true) {
+                line = buffer.readLine();
+                if (line == null)
+                    break;
+                int beginIndex = 0;
+                int endIndex = line.indexOf(":");
+                if (endIndex != -1) {
+                    String key = line.substring(beginIndex, endIndex);
+                    beginIndex = endIndex + 1;
+                    endIndex = line.length();
+                    String memory = line.substring(beginIndex, endIndex);
+                    String value = memory.replace("kB", "").trim();
+                    map.put(key, value);
+                }
+            }
+
+            long memTotal = Long.parseLong(map.get("MemTotal").toString());
+            System.out.println("内存总量" + memTotal + "KB");
+            long memFree = Long.parseLong(map.get("MemFree").toString());
+            System.out.println("剩余内存" + memFree + "KB");
+            long memused = memTotal - memFree;
+            System.out.println("已用内存" + memused + "KB");
+            long buffers = Long.parseLong(map.get("Buffers").toString());
+            long cached = Long.parseLong(map.get("Cached").toString());
+
+            double usage = (double) (memused - buffers - cached) / memTotal * 100;
+            System.out.println("内存使用率" + usage + "%");
+
+            return memFree;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                buffer.close();
+                inputs.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        return 0;
     }
 }
