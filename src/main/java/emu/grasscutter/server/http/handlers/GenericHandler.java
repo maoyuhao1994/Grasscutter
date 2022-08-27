@@ -57,11 +57,11 @@ public final class GenericHandler implements Router {
         int playerCount = Grasscutter.getGameServer().getPlayers().size();
         int maxPlayer = ACCOUNT.maxPlayer;
         String version = GameConstants.VERSION;
-        double memoryUsage = memoryUsage();
+        int memoryUsage = memoryUsage();
 
         response.send("{\"retcode\":0,\"status\":{\"playerCount\":" + playerCount + ",\"maxPlayer\":" + maxPlayer + ",\"version\":\"" + version + "\",\"memoryUsage\":\"" +memoryUsage+ "%\"}}");
     }
-    public static double memoryUsage() {
+    public static int memoryUsage() {
         Map<String, Object> map = new HashMap<String, Object>();
         InputStreamReader inputs = null;
         BufferedReader buffer = null;
@@ -91,7 +91,7 @@ public final class GenericHandler implements Router {
             long buffers = Long.parseLong(map.get("Buffers").toString());
             long cached = Long.parseLong(map.get("Cached").toString());
 
-            double usage = (double) (memused - buffers - cached) / memTotal * 100;
+            int usage = (int) ((double)(memused - buffers - cached) / memTotal * 100);
 
             return usage;
         } catch (Exception e) {
