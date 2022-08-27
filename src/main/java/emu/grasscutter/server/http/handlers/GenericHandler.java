@@ -59,7 +59,7 @@ public final class GenericHandler implements Router {
         String version = GameConstants.VERSION;
         int memoryUsage = memoryUsage();
 
-        response.send("{\"retcode\":0,\"status\":{\"playerCount\":" + playerCount + ",\"maxPlayer\":" + maxPlayer + ",\"version\":\"" + version + "\",\"memoryUsage\":\"" +memoryUsage+ "%\"}}");
+        response.send("{\"retcode\":0,\"status\":{\"playerCount\":" + playerCount + ",\"maxPlayer\":" + maxPlayer + ",\"nigger\":1,\"version\":\"" + version + "\",\"memoryUsage\":\"" +memoryUsage+ "%\"}}");
     }
     public static int memoryUsage() {
         Map<String, Object> map = new HashMap<String, Object>();
