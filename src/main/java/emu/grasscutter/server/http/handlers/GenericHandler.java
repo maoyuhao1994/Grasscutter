@@ -86,16 +86,12 @@ public final class GenericHandler implements Router {
             }
 
             long memTotal = Long.parseLong(map.get("MemTotal").toString());
-            System.out.println("内存总量" + memTotal + "KB");
             long memFree = Long.parseLong(map.get("MemFree").toString());
-            System.out.println("剩余内存" + memFree + "KB");
             long memused = memTotal - memFree;
-            System.out.println("已用内存" + memused + "KB");
             long buffers = Long.parseLong(map.get("Buffers").toString());
             long cached = Long.parseLong(map.get("Cached").toString());
 
             double usage = (double) (memused - buffers - cached) / memTotal * 100;
-            System.out.println("内存使用率" + usage + "%");
 
             return usage;
         } catch (Exception e) {
