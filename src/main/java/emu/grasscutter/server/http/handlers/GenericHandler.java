@@ -72,7 +72,7 @@ public final class GenericHandler implements Router {
         int playerCount = Grasscutter.getGameServer().getPlayers().size();
         response.send(playerCount);
     }
-    private static void serverStatus(Request request, Response response) {
+    private static void memoryUsageStatus(Request request, Response response) {
         int memoryUsage = memoryUsage();
         response.send(memoryUsage);
     }
