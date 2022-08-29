@@ -51,6 +51,9 @@ public final class GenericHandler implements Router {
         express.get("/admin/mi18n/plat_oversea/*", new WebStaticVersionResponse());
 
         express.get("/status/server", GenericHandler::serverStatus);
+        express.get("/status/version", GenericHandler::versionStatus);
+        express.get("/status/playerCount", GenericHandler::playerCountStatus);
+        express.get("/status/memoryUsage", GenericHandler::memoryUsageStatus);
     }
 
     private static void serverStatus(Request request, Response response) {
@@ -60,6 +63,18 @@ public final class GenericHandler implements Router {
         int memoryUsage = memoryUsage();
 
         response.send("{\"retcode\":0,\"status\":{\"playerCount\":" + playerCount + ",\"maxPlayer\":" + maxPlayer + ",\"nigger\":1,\"version\":\"" + version + "\",\"memoryUsage\":\"" +memoryUsage+ "%\"}}");
+    }
+    private static void versionStatus(Request request, Response response) {
+        String version = GameConstants.VERSION;
+        response.send(version);
+    }
+    private static void playerCountStatus(Request request, Response response) {
+        int playerCount = Grasscutter.getGameServer().getPlayers().size();
+        response.send(playerCount);
+    }
+    private static void serverStatus(Request request, Response response) {
+        int memoryUsage = memoryUsage();
+        response.send(memoryUsage);
     }
     public static int memoryUsage() {
         Map<String, Object> map = new HashMap<String, Object>();
