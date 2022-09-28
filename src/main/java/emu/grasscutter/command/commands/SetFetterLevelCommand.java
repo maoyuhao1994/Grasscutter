@@ -15,8 +15,8 @@ import static emu.grasscutter.utils.Language.translate;
     label = "setFetterLevel",
     usage = {"<level>"},
     aliases = {"setfetterlvl", "setfriendship"},
-    permission = "player.setfetterlevel",
-    permissionTargeted = "player.setfetterlevel.others")
+    permission = "server.setfetterlevel",
+    permissionTargeted = "server.setfetterlevel.others")
 public final class SetFetterLevelCommand implements CommandHandler {
 
     @Override
