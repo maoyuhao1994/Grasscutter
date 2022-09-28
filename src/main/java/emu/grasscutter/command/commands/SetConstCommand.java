@@ -20,8 +20,8 @@ import java.util.List;
     label = "setConst",
     aliases = {"setconstellation"},
     usage = {"<constellation level>"},
-    permission = "player.setconstellation",
-    permissionTargeted = "player.setconstellation.others")
+    permission = "server.setconstellation",
+    permissionTargeted = "server.setconstellation.others")
 public final class SetConstCommand implements CommandHandler {
     @Override
     public void execute(Player sender, Player targetPlayer, List<String> args) {
