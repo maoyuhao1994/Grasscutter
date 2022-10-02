@@ -229,9 +229,8 @@ public class Account {
     public void onLoad(Document document) {
         // Grant the superuser permissions to accounts created before the permissions update
         if (!document.containsKey("permissions")) {
-            this.addPermission("player.clearinv");
-            this.addPermission("player.setworldlevel");
-            this.addPermission("player.quest");
+            this.addPermission("player.*");
+            this.addPermission("server.spawn");
         }
 
         // Set account default language as server default language
