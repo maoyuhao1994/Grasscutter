@@ -19,8 +19,8 @@ import emu.grasscutter.server.packet.send.PacketEntityFightPropUpdateNotify;
         "[set] <stat> <value>",
         "(lock|freeze) <stat> [<value>]",  // Can lock to current value
         "(unlock|unfreeze) <stat>"},
-    permission = "player.setstats",
-    permissionTargeted = "player.setstats.others")
+    permission = "server.setstats",
+    permissionTargeted = "server.setstats.others")
 public final class SetStatsCommand implements CommandHandler {
     private static class Stat {
         String name;
