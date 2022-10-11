@@ -14,7 +14,7 @@ import emu.grasscutter.server.packet.send.PacketOpenStateChangeNotify;
 import emu.grasscutter.server.packet.send.PacketSceneAreaUnlockNotify;
 import emu.grasscutter.server.packet.send.PacketScenePointUnlockNotify;
 
-@Command(label = "setProp", aliases = {"prop"}, usage = {"<prop> <value>"}, permission = "player.setprop", permissionTargeted = "player.setprop.others")
+@Command(label = "setProp", aliases = {"prop"}, usage = {"<prop> <value>"}, permission = "server.setprop", permissionTargeted = "server.setprop.others")
 public final class SetPropCommand implements CommandHandler {
     static enum PseudoProp {
         NONE,
