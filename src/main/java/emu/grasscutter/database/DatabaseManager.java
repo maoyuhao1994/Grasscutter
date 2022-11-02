@@ -36,11 +36,7 @@ public final class DatabaseManager {
     // Yes. I very dislike this method. However, this will be good for now.
     // TODO: Add dispatch routes for player account management
     public static Datastore getAccountDatastore() {
-        if (SERVER.runMode == ServerRunMode.GAME_ONLY) {
-            return dispatchDatastore;
-        } else {
-            return gameDatastore;
-        }
+        return dispatchDatastore;
     }
 
     public static void initialize() {
@@ -69,15 +65,13 @@ public final class DatabaseManager {
         // Ensure indexes for the game datastore
         ensureIndexes(gameDatastore);
 
-        if (SERVER.runMode == ServerRunMode.GAME_ONLY) {
-            MongoClient dispatchMongoClient = MongoClients.create(DATABASE.server.connectionUri);
+        MongoClient dispatchMongoClient = MongoClients.create(DATABASE.server.connectionUri);
 
-            dispatchDatastore = Morphia.createDatastore(dispatchMongoClient, DATABASE.server.collection, mapperOptions);
-            dispatchDatastore.getMapper().map(new Class<?>[] {DatabaseCounter.class, Account.class});
+        dispatchDatastore = Morphia.createDatastore(dispatchMongoClient, DATABASE.server.collection, mapperOptions);
+        dispatchDatastore.getMapper().map(new Class<?>[] {DatabaseCounter.class, Account.class});
 
-            // Ensure indexes for dispatch datastore
-            ensureIndexes(dispatchDatastore);
-        }
+        // Ensure indexes for dispatch datastore
+        ensureIndexes(dispatchDatastore);
     }
 
     /**
