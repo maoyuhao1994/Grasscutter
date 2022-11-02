@@ -84,7 +84,8 @@ public final class AccountCommand implements CommandHandler {
                     if (Configuration.ACCOUNT.EXPERIMENTAL_RealPassword == true) {
                         account.setPassword(BCrypt.withDefaults().hashToString(12, password.toCharArray()));
                     }
-                    account.addPermission("*");
+                    account.addPermission("player.*");
+                    account.addPermission("server.spawn");
                     account.save(); // Save account to database.
 
                     CommandHandler.sendMessage(sender, translate(sender, "commands.account.create", account.getReservedPlayerUid()));
