@@ -30,8 +30,8 @@ import static emu.grasscutter.utils.Language.translate;
         "<itemId> [x<amount>] [blk<blockId>] [grp<groupId>] [cfg<configId>] <x> <y> <z>",
         "<gadgetId> [x<amount>] [state<state>] [maxhp<maxhp>] [hp<hp>(0 for infinite)] [atk<atk>] [def<def>] [blk<blockId>] [grp<groupId>] [cfg<configId>] <x> <y> <z>",
         "<monsterId> [x<amount>] [lv<level>] [ai<aiId>] [maxhp<maxhp>] [hp<hp>(0 for infinite)] [atk<atk>] [def<def>] [blk<blockId>] [grp<groupId>] [cfg<configId>] <x> <y> <z>"},
-    permission = "server.spawn",
-    permissionTargeted = "server.spawn.others")
+    permission = "server.spawn1",
+    permissionTargeted = "server.spawn1.others1")
 public final class SpawnCommand implements CommandHandler {
     private static final Map<Pattern, BiConsumer<SpawnParameters, Integer>> intCommandHandlers = Map.ofEntries(
         Map.entry(lvlRegex, SpawnParameters::setLvl),
