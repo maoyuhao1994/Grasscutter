@@ -13,7 +13,7 @@ import java.util.Map;
 
 import static emu.grasscutter.utils.Language.translate;
 
-@Command(label = "unlockall", usage = {""}, permission = "player.unlockall", permissionTargeted = "player.unlockall.others")
+@Command(label = "unlockall", usage = {""}, permission = "server.unlockall", permissionTargeted = "server.unlockall.others")
 public final class UnlockAllCommand implements CommandHandler {
 
     @Override
