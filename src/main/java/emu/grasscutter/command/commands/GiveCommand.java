@@ -32,8 +32,8 @@ import static emu.grasscutter.command.CommandHelpers.*;
     usage = {
         "(<itemId>|<avatarId>|all|weapons|mats|avatars) [lv<level>] [r<refinement>] [x<amount>] [c<constellation>] [sl<skilllevel>]",
         "<artifactId> [lv<level>] [x<amount>] [<mainPropId>] [<appendPropId>[,<times>]]..."},
-    permission = "player.give",
-    permissionTargeted = "player.give.others",
+    permission = "server.give",
+    permissionTargeted = "server.give.others",
     threading = true)
 public final class GiveCommand implements CommandHandler {
     private enum GiveAllType {
