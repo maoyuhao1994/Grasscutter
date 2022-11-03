@@ -79,7 +79,7 @@ public class GameHome {
             this.player = player;
         player.getSession().send(new PacketHomeBasicInfoNotify(player, false));
         player.getSession().send(new PacketPlayerHomeCompInfoNotify(player));
-        player.getSession().send(new PacketHomeComfortInfoNotify(player));
+        //player.getSession().send(new PacketHomeComfortInfoNotify(player));
         player.getSession().send(new PacketFurnitureCurModuleArrangeCountNotify());
         player.getSession().send(new PacketHomeMarkPointNotify(player));
         player.getSession().send(new PacketUnlockedHomeBgmNotify(player));
