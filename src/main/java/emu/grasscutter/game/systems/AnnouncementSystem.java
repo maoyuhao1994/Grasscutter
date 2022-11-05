@@ -86,7 +86,7 @@ public class AnnouncementSystem extends BaseGameSystem {
             proto.setConfigId(templateId)
                 // I found the time here is useless
                 .setBeginTime(Utils.getCurrentSeconds() + 1)
-                .setEndTime(Utils.getCurrentSeconds() + 10);
+                .setEndTime(Utils.getCurrentSeconds() + 3);
 
             if (type == AnnounceType.CENTER) {
                 proto.setCenterSystemText(content)
