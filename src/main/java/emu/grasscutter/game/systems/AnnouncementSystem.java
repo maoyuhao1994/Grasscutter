@@ -93,8 +93,8 @@ public class AnnouncementSystem extends BaseGameSystem {
                     .setCenterSystemFrequency(frequency)
                 ;
             }else {
-                proto.setCountDownText(content)
-                    .setCountDownFrequency(frequency)
+                proto.setCenterSystemText(content)
+                    .setCenterSystemFrequency(frequency)
                 ;
             }
 
