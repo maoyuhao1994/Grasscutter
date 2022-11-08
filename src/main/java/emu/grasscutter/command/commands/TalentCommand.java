@@ -13,8 +13,8 @@ import java.util.List;
 @Command(
     label = "talent",
     usage = {"set <talentId> <level>", "(n|e|q|all) <level>", "getid"},
-    permission = "player.settalent",
-    permissionTargeted = "player.settalent.others")
+    permission = "server.settalent",
+    permissionTargeted = "server.settalent.others")
 public final class TalentCommand implements CommandHandler {
     private void setTalentLevel(Player sender, Avatar avatar, int skillId, int newLevel) {
         if (avatar.setSkillLevel(skillId, newLevel)) {
