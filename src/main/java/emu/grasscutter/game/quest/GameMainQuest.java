@@ -170,7 +170,7 @@ public class GameMainQuest {
             if ( (i+1) >= sortedByOrder.size()) {
                 didRewind = quest.rewind(null);
             } else {
-                didRewind = quest.rewind(sortedByOrder.get(i+1));
+                didRewind = quest.rewind(null);
             }
             if (didRewind) {
                 break;
