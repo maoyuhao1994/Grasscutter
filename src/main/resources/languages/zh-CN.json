@@ -283,6 +283,20 @@
       "unlocked": "%s 已解锁。",
       "unlocked_for": "%s [来自 %s] 已解锁。"
     },
+    "setWorldLevel": {
+      "usage": "用法：setworldlevel <等级>",
+      "value_error": "世界等级必须在 0-8 之间。",
+      "success": "世界等级已设为 %s。",
+      "invalid_world_level": "无效的世界等级。",
+      "description": "设置世界等级，执行命令后需重新登录以生效"
+    },
+    "UnlockMap": {
+      "usage": "用法：UnlockMap <1/0>",
+      "value_error": "解锁地图。",
+      "success": "解锁地图。",
+      "invalid_world_level": "无效的世界等级。",
+      "description": "设置世界等级，执行命令后需重新登录以生效"
+    },
     "spawn": {
       "success": "已生成 %s 个 %s。",
       "limit_reached": "场景中的生成数量已达上限。已替代为生成 %s 个实体。",
