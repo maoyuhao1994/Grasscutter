@@ -167,7 +167,7 @@ public class GameMainQuest {
         boolean didRewind = false;
         for (GameQuest quest : sortedByOrder) {
             int i = sortedByOrder.indexOf(quest);
-            if ( (i+1) >= sortedByOrder.size()) {
+            if ( i == sortedByOrder.size()) {
                 didRewind = quest.rewind(null);
             } else {
                 didRewind = quest.rewind(null);
