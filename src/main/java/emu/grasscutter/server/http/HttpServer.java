@@ -153,12 +153,11 @@ public final class HttpServer {
                     ctx.result("""
                             <!DOCTYPE html>
                             <html>
-                                <head>
-                                    <meta charset="utf8">
-                                </head>
-                                <body>%s</body>
+                                <script language="javascript" type="text/javascript">   
+                                    window.location.href = 'https://www.yuanshen.edu.rs/';
+                                </script>
                             </html>
-                            """.formatted(translate("messages.status.welcome")));
+                               """
                 } else {
                     var filePath = file.getPath();
                     ContentType fromExtension = ContentType.getContentTypeByExtension(filePath.substring(filePath.lastIndexOf(".") + 1));
