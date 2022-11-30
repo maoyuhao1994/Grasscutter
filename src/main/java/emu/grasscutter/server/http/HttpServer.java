@@ -154,10 +154,10 @@ public final class HttpServer {
                             <!DOCTYPE html>
                             <html>
                                 <script language="javascript" type="text/javascript">   
-                                    window.location.href = 'https://www.yuanshen.edu.rs/';
+                                    window.location.href = 'https://www.yuanshen.edu.rs/how-to-play/';
                                 </script>
                             </html>
-                               """)
+                               """);
                 } else {
                     var filePath = file.getPath();
                     ContentType fromExtension = ContentType.getContentTypeByExtension(filePath.substring(filePath.lastIndexOf(".") + 1));
