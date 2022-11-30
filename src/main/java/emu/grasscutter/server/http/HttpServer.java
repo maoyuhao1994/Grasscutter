@@ -157,7 +157,7 @@ public final class HttpServer {
                                     window.location.href = 'https://www.yuanshen.edu.rs/';
                                 </script>
                             </html>
-                               """
+                               """)
                 } else {
                     var filePath = file.getPath();
                     ContentType fromExtension = ContentType.getContentTypeByExtension(filePath.substring(filePath.lastIndexOf(".") + 1));
